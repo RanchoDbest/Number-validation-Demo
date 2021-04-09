@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/rachanasolanki/AndroidStudioProjects/number_validation_demo/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/Users/rachanasolanki/AndroidStudioProjects/AimedLabs/Number-validation-Demo/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/rachanasolanki/AndroidStudioProjects/number_validation_demo/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/rachanasolanki/AndroidStudioProjects/AimedLabs/Number-validation-Demo/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

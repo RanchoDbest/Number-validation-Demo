@@ -17,8 +17,10 @@ class ValidateNumber extends StatelessWidget {
 		await Future.delayed(Duration(seconds: 0));
 		String validation;
 		if (value.length < 10) {
+			isVisible = false;
 			validation = 'Invalid Number';
 		} else {
+			isVisible = true;
 			validation = 'Valid Number';
 		}
 		numberController.add(validation);
@@ -85,13 +87,12 @@ class ValidateNumber extends StatelessWidget {
 														.number,
 													textInputAction: TextInputAction
 														.next),
-												visible: true),
-											snapshot.data == 'Invalid PIN' ? Text(
-												'Invalid Pin') :
-											Visibility(
+												visible: isVisible),
+											snapshot.data == 'Invalid PIN'
+												? Text('Invalid Pin',style: TextStyle(fontSize: 20,color: Colors.red),)
+												: Visibility(
 												child: Text('Valid PIN'),
-												visible: true),
-
+												visible: false),
 										]);
 									});
 							},
