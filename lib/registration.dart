@@ -9,7 +9,7 @@ class ValidateNumber extends StatelessWidget {
 	@override
 	Widget build(BuildContext context) {
 		return Consumer<NumberModel>(
-			builder: (_, numberModel, child) =>
+			builder: (_, numberModel, __) =>
 				MaterialApp(
 					home: Scaffold(
 						body: Center(
@@ -26,36 +26,22 @@ class ValidateNumber extends StatelessWidget {
 										textInputAction: TextInputAction.next,
 									),
 
-									TextField(
-										controller: _pinController,
-										maxLength: 4,
-										decoration: InputDecoration(
-											hintText: "Enter PIN",
-										),
-										keyboardType: TextInputType
-											.number,
-										textInputAction: TextInputAction
-											.next),
-
-									ElevatedButton(
-										onPressed: () =>
-										[
-											numberModel.addData(
-												_numberController.text),
-											numberModel.addPin(
-												_pinController.text)
-										],
-										child: Text('Submit'),
-									),
-
 									StreamBuilder<bool>(
-										initialData: false,
+										initialData: true,
 										stream: numberModel.numberController.stream,
 										builder: (_, snap) {
 											print(snap.data);
 											return Visibility(
+												child: Text('Enter Valid Number'),
 												visible: snap.data,
-												child: Text('Invalid Number'),
+												replacement: TextField(
+													controller: _pinController,
+													maxLength: 4,
+													decoration: InputDecoration(
+														hintText: "Enter PIN",
+													),
+													keyboardType: TextInputType.number,
+													textInputAction: TextInputAction.next),
 											);
 										}),
 
@@ -68,10 +54,21 @@ class ValidateNumber extends StatelessWidget {
 												visible: snapshot.data,
 											);
 										}),
+
+									ElevatedButton(
+										onPressed: () =>
+										[
+											numberModel.addData(_numberController.text),
+											numberModel.addPin(_pinController.text)
+										],
+										child: Text('Submit'),
+									),
 								]),
 						),
 					),
 				),
 		);
 	}
+
+
 }
