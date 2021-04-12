@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'number_model.dart';
-import 'registration.dart';
+import 'model/number_model.dart';
+import 'screen/registration.dart';
 
 void main() {
 	runApp(MyApp());
